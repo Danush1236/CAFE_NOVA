@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAFE NOVA - Premium Coffee Experience</title>
+    <!-- Preload critical assets -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style">
+    <link rel="preload" href="../coffeshop/style.css" as="style">
+    <!-- Load stylesheets -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../coffeshop/style.css">
+    <!-- Add async loading for non-critical scripts -->
+    <script src="../coffeshop/js.js" defer></script>
+</head>
+<body>
+    
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+        <div class="coffee-cup"></div>
+    </div>
+
+    <!-- Floating Coffee Beans Background -->
+    <div class="floating-beans">
+        <div class="bean"></div>
+        <div class="bean"></div>
+        <div class="bean"></div>
+        <div class="bean"></div>
+        <div class="bean"></div>
+        <div class="bean"></div>
+        <div class="bean"></div>
+        <div class="bean"></div>
+        <div class="bean"></div>
+        <div class="bean"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">☕ CAFE NOVA</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-controls">
+                <a href="login.html" class="auth-btn login-btn">Sign In</a>
+                <a href="signup.html" class="auth-btn signup-btn">Sign Up</a>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="cart-wrapper">
+                    <button class="cart-icon" id="cartIcon" onclick="toggleCart()">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>CAFE NOVA</h1>
+            <p>Brewed to Inspire, Crafted to Delight.</p>
+            <a href="#menu" class="cta-button">Discover Our Menu</a>
+        </div>
+        <div class="steam">
+            <div class="steam-line"></div>
+            <div class="steam-line"></div>
+            <div class="steam-line"></div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="section" id="menu">
+        <h2 class="section-title">Our Premium Coffee Collection</h2>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <img src="image/1.jpg" 
+                     alt="Espresso" 
+                     loading="lazy"
+                     width="300"
+                     height="200">
+                <h3>Classic Espresso</h3>
+                <p>Rich, full-bodied espresso shot with perfect golden crema. Made from our signature blend of Colombian and Brazilian beans, roasted to perfection.</p>
+                <div class="price">$3.50</div>
+                <div class="button-group">
+                    <button class="add-to-cart" onclick="addToCart('Classic Espresso', 3.50, this)">Add to Cart</button>
+                    <button class="buy-now" onclick="buyNow('Classic Espresso', 3.50)">Buy Now</button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="image/pexels-andrew-4264049.jpg" alt="Cappuccino" loading="lazy">
+                <h3>Cappuccino Deluxe</h3>
+                <p>Traditional Italian cappuccino with equal parts espresso, steamed milk, and velvety microfoam. Dusted with premium cocoa powder.</p>
+                <div class="price">$4.25</div>
+                <div class="button-group">
+                    <button class="add-to-cart" onclick="addToCart('Cappuccino Deluxe', 4.25, this)">Add to Cart</button>
+                    <button class="buy-now" onclick="buyNow('Cappuccino Deluxe', 4.25)">Buy Now</button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="image/pexels-adrian-vocalan-80196520-8979740.jpg" alt="Latte" loading="lazy">
+                <h3>Artisan Latte</h3>
+                <p>Smooth and creamy latte with silky steamed milk and beautiful latte art. Available in vanilla, caramel, hazelnut, or seasonal flavors.</p>
+                <div class="price">$4.75</div>
+                <div class="button-group">
+                    <button class="add-to-cart" onclick="addToCart('Artisan Latte', 4.75, this)">Add to Cart</button>
+                    <button class="buy-now" onclick="buyNow('Artisan Latte', 4.75)">Buy Now</button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="image/pexels-ahmetyuksek-29799612.jpg" alt="Americano" loading="lazy">
+                <h3>Bold Americano</h3>
+                <p>Bold espresso shots diluted with hot water for a clean, intense coffee flavor. Perfect for those who love pure, unadulterated coffee taste.</p>
+                <div class="price">$3.75</div>
+                <div class="button-group">
+                    <button class="add-to-cart" onclick="addToCart('Bold Americano', 3.75, this)">Add to Cart</button>
+                    <button class="buy-now" onclick="buyNow('Bold Americano', 3.75)">Buy Now</button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="image/pexels-maksgelatin-4737765.jpg" alt="Mocha" loading="lazy">
+                <h3>Decadent Mocha</h3>
+                <p>Luxurious blend of rich espresso, premium Belgian chocolate, and steamed milk. Topped with fresh whipped cream and chocolate shavings.</p>
+                <div class="price">$5.25</div>
+                <div class="button-group">
+                    <button class="add-to-cart" onclick="addToCart('Decadent Mocha', 5.25, this)">Add to Cart</button>
+                    <button class="buy-now" onclick="buyNow('Decadent Mocha', 5.25)">Buy Now</button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="image/pexels-spotwizardlee-35777904-7362647.jpg" alt="Macchiato" loading="lazy">
+                <h3>Caramel Macchiato</h3>
+                <p>Espresso "marked" with steamed milk and finished with rich caramel drizzle and artistic foam. Sweet sophistication in every sip.</p>
+                <div class="price">$4.50</div>
+                <div class="button-group">
+                    <button class="add-to-cart" onclick="addToCart('Caramel Macchiato', 4.50, this)">Add to Cart</button>
+                    <button class="buy-now" onclick="buyNow('Caramel Macchiato', 4.50)">Buy Now</button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="image/pexels-tyler-nix-1259808-2396220.jpg" alt="Cold Brew" loading="lazy">
+                <h3>Cold Brew Supreme</h3>
+                <p>Smooth, refreshing cold brew steeped for 20 hours. Served over ice with optional cream, vanilla, or flavored syrups. Summer perfection.</p>
+                <div class="price">$4.00</div>
+                <div class="button-group">
+                    <button class="add-to-cart" onclick="addToCart('Cold Brew Supreme', 4.00, this)">Add to Cart</button>
+                    <button class="buy-now" onclick="buyNow('Cold Brew Supreme', 4.00)">Buy Now</button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="image/What-Is-A-Latte-scaled.jpg" alt="Frappuccino" loading="lazy">
+                <h3>Iced Frappuccino</h3>
+                <p>Blended coffee drink with ice, milk, and your choice of flavor. Topped with whipped cream and flavor-specific garnish. Instagram-worthy treat.</p>
+                <div class="price">$5.50</div>
+                <div class="button-group">
+                    <button class="add-to-cart" onclick="addToCart('Iced Frappuccino', 5.50, this)">Add to Cart</button>
+                    <button class="buy-now" onclick="buyNow('Iced Frappuccino', 5.50)">Buy Now</button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="image/pexels-andrew-7400278.jpg" alt="Flat White" loading="lazy">
+                <h3>Australian Flat White</h3>
+                <p>Double shot of espresso with steamed milk and velvety microfoam. Stronger than a latte, smoother than a cappuccino. Pure coffee bliss.</p>
+                <div class="price">$4.25</div>
+                <div class="button-group">
+                    <button class="add-to-cart" onclick="addToCart('Australian Flat White', 4.25, this)">Add to Cart</button>
+                    <button class="buy-now" onclick="buyNow('Australian Flat White', 4.25)">Buy Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <h2 class="section-title">About CAFE NOVA</h2>
+        <div class="about">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Our Passion Story</h2>
+                    <p>Founded in 2010 in Colombo by passionate coffee enthusiast Danushka Wickramasinghe, CAFE NOVA started as a small family-run café with a bold mission: to bring world-class coffee culture to Sri Lanka while supporting local farmers and fostering genuine connections within our community.</p>
+                    
+                    <p>What began in a converted home kitchen has grown into a beloved gathering place for coffee lovers across the island. Despite our growth, we remain committed to our roots—roasting our beans in small batches using traditional methods, and sourcing high-quality Arabica and Robusta beans from the misty hills of Nuwara Eliya, Kandy, and Ella, as well as trusted fair-trade partners in Ethiopia, Colombia, and beyond.</p>
+                    
+                    <p>Our team of baristas are trained in both the science and artistry of coffee—from perfect extraction techniques to intricate latte art—ensuring that every cup at CAFE NOVA is crafted with precision, care, and Sri Lankan warmth.</p>
+                    
+                    <p>We believe coffee is more than just a drink. It's a moment of calm, a reason to meet, and a celebration of culture. Whether you're working on your next big idea, catching up with friends, preparing for exams, or simply relaxing, CAFE NOVA is your home away from home.</p>
+                </div>
+                <div class="about-image">
+                    <img src="../coffeshop/image/pexels-ahmetyuksek-30246080.jpg" alt="Coffee roasting process and barista at work">
+                </div>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="75000">0</div>
+                    <div class="stat-label">Happy Customers Served</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="18">0</div>
+                    <div class="stat-label">Coffee Origins Islandwide</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="14">0</div>
+                    <div class="stat-label">Years of Excellence</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <h2 class="section-title" style="color: white;">What Our Coffee Lovers Say</h2>
+        <div class="testimonials-slider">
+            <div class="testimonial active">
+                <p>CAFE NOVA has become my daily ritual and sanctuary. The consistency of their espresso is absolutely unmatched, and the cozy atmosphere makes it the perfect place to start my morning. The staff remembers not just my order, but my name, and always greets me with genuine warmth!</p>
+                <div class="testimonial-author">- Sarah Johnson, Marketing Director</div>
+            </div>
+            <div class="testimonial">
+                <p>As someone who's traveled the world tasting coffee in over 30 countries, I can confidently say CAFE NOVA serves some of the finest cups I've ever experienced. Their Ethiopian single-origin is absolutely divine, and you can taste the care, passion, and expertise in every single sip.</p>
+                <div class="testimonial-author">- Michael Chen, Coffee Enthusiast & Travel Blogger</div>
+            </div>
+            <div class="testimonial">
+                <p>The baristas here are true artists and coffee scientists. Not only do they make incredible coffee that rivals any European café, but their latte art is Instagram-worthy every single time. This place has soul, personality, and it shows in absolutely everything they do.</p>
+                <div class="testimonial-author">- Emily Rodriguez, Graphic Designer & Coffee Addict</div>
+            </div>
+            <div class="testimonial">
+                <p>CAFE NOVA isn't just a coffee shop—it's the beating heart of our community. I've made lifelong friends here, conducted important business meetings, and even had my first date with my now-husband at one of their cozy corner tables. It's pure magic!</p>
+                <div class="testimonial-author">- David Thompson, Local Entrepreneur</div>
+            </div>
+        </div>
+        <div class="slider-dots">
+            <span class="dot active" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <h2 class="section-title">Get In Touch With Us</h2>
+        <div class="contact">
+            <div class="contact-content">
+                <div class="contact-form">
+                    <h3 style="margin-bottom: 2rem; color: var(--primary-color); font-size: 2rem;">Send us a Message</h3>
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email Address" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" placeholder="Phone Number (Optional)">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Subject" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea rows="6" placeholder="Tell us how we can help you... We'd love to hear from you!" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </div>
+                <div class="contact-info">
+                    <h3 style="margin-bottom: 2rem; color: var(--primary-color); font-size: 2rem;">Visit Our Café</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Main Location</strong><br>
+                            123 Coffee Street<br>
+                            Downtown Arts District<br>
+                            Bean City, BC 12345<br>
+                            <small>Corner of Coffee St. & Brew Ave.</small>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <strong>Phone & Orders</strong><br>
+                            <a href="tel:+15551234567">(555) 123-4567</a><br>
+                            <a href="tel:+15551234568">(555) 123-4568</a> (Catering)<br>
+                            <small>Call ahead for large orders</small>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>Email Contacts</strong><br>
+                            <a href="mailto:hello@cafe-nova.com">hello@cafe-nova.com</a><br>
+                            <a href="mailto:catering@cafe-nova.com">catering@cafe-nova.com</a><br>
+                            <a href="mailto:events@cafe-nova.com">events@cafe-nova.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong>Opening Hours</strong><br>
+                            Monday-Friday: 6:00 AM - 9:00 PM<br>
+                            Saturday-Sunday: 7:00 AM - 10:00 PM<br>
+                            <small>Extended hours during finals week!</small>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-wifi"></i>
+                        <div>
+                            <strong>Free High-Speed WiFi</strong><br>
+                            Network: CAFE-NOVA_Guest<br>
+                            Password: CoffeeLovers2024<br>
+                            <small>Perfect for remote work & study sessions</small>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-car"></i>
+                        <div>
+                            <strong>Parking & Accessibility</strong><br>
+                            Free parking available<br>
+                            Wheelchair accessible entrance<br>
+                            <small>2-hour limit, validated with any purchase</small>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-credit-card"></i>
+                        <div>
+                            <strong>Payment Methods</strong><br>
+                            Cash, All Credit Cards<br>
+                            Apple Pay, Google Pay, Venmo<br>
+                            <small>CAFE NOVA loyalty card accepted</small>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-truck"></i>
+                        <div>
+                            <strong>Delivery & Pickup</strong><br>
+                            DoorDash, Uber Eats, Grubhub<br>
+                            Curbside pickup available<br>
+                            <small>Free delivery on orders over $25</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>CAFE NOVA</h3>
+                <p>Crafting exceptional coffee experiences since 2010. Every cup tells a story of passion, quality, community, and sustainable practices that support coffee farmers worldwide.</p>
+                <div class="social-links">
+                    <a href="https://facebook.com/cafe-nova" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://instagram.com/cafe-nova" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://twitter.com/cafe-nova" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://linkedin.com/company/cafe-nova" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://youtube.com/cafe-nova" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Navigation</h3>
+                <a href="#menu">Our Coffee Menu</a>
+                <a href="#about">About Our Story</a>
+                <a href="#contact">Contact & Location</a>
+                <a href="#">Catering Services</a>
+                <a href="#">Digital Gift Cards</a>
+                <a href="#">Loyalty Rewards Program</a>
+                <a href="#">Coffee Subscriptions</a>
+                <a href="#">Barista Training Classes</a>
+            </div>
+            <div class="footer-section">
+                <h3>Our Services</h3>
+                <a href="#">Monthly Coffee Subscription</a>
+                <a href="#">Wholesale & Bulk Orders</a>
+                <a href="#">Private Events & Parties</a>
+                <a href="#">Coffee Cupping Classes</a>
+                <a href="#">Equipment Sales & Rental</a>
+                <a href="#">Corporate Catering</a>
+                <a href="#">Wedding Coffee Service</a>
+                <a href="#">Coffee Consultation</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact & Connect</h3>
+                <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+                <p><i class="fas fa-envelope"></i> hello@cafe-nova.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Coffee Street, Bean City</p>
+                <a href="#">Order Online</a>
+                <a href="#">Download Mobile App</a>
+                <a href="#">Delivery Partners</a>
+                <a href="#">Join Our Newsletter</a>
+                <a href="#">Coffee Blog</a>
+            </div>
+        </div>
+        <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; margin-top: 3rem;">
+            <p>&copy; 2024 CAFE NOVA. All rights reserved. | <a href="#" style="color: var(--accent-color);">Privacy Policy</a> | <a href="#" style="color: var(--accent-color);">Terms of Service</a> | <a href="#" style="color: var(--accent-color);">Accessibility</a></p>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h2>Your Cart</h2>
+                <button class="close-cart" onclick="toggleCart()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="cart-items" id="cartItems">
+                <!-- Cart items will be dynamically added here -->
+            </div>
+            <div class="cart-summary">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="cartTotal">$0.00</span>
+                </div>
+                <button class="checkout-btn" onclick="checkout()">
+                    <i class="fas fa-shopping-bag"></i> Proceed to Checkout
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js.js"></script>
+</body>
+</html>
